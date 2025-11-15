@@ -33,7 +33,26 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8 animate-fade-in">
         {/* Logo */}
         <div className="flex justify-center mb-8">
-          <img src={logo} alt="codeLab" className="w-48 h-48 object-contain" />
+          <div className="relative group">
+            {/* Glow effect behind logo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-secondary rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-glow-pulse" />
+            
+            {/* Logo container */}
+            <div className="relative">
+              <div className="terminal-border rounded-2xl p-2 bg-background/50 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+                <img 
+                  src={logo} 
+                  alt="codeLab" 
+                  className="w-40 h-40 md:w-48 md:h-48 object-contain rounded-xl" 
+                />
+              </div>
+              
+              {/* Floating particles */}
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full animate-bounce opacity-60" style={{ animationDelay: "0s" }} />
+              <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-accent rounded-full animate-bounce opacity-60" style={{ animationDelay: "0.3s" }} />
+              <div className="absolute top-1/2 -right-4 w-2 h-2 bg-secondary rounded-full animate-bounce opacity-60" style={{ animationDelay: "0.6s" }} />
+            </div>
+          </div>
         </div>
 
         {/* Terminal Window */}
