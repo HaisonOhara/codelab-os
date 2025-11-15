@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Database, Smartphone, Cloud, Brain, Rocket } from "lucide-react";
 
 const courses = [
   {
+    id: "web-fullstack",
     icon: Code2,
     title: "Desenvolvimento Web Full-Stack",
     description: "Domine React, Node.js, TypeScript e construa aplicações modernas do zero.",
@@ -12,6 +14,7 @@ const courses = [
     color: "primary",
   },
   {
+    id: "mobile-react-native",
     icon: Smartphone,
     title: "Mobile com React Native",
     description: "Crie apps nativos para iOS e Android com JavaScript e React.",
@@ -20,6 +23,7 @@ const courses = [
     color: "accent",
   },
   {
+    id: "backend-apis",
     icon: Database,
     title: "Backend & APIs",
     description: "Arquitetura de microsserviços, bancos de dados e APIs escaláveis.",
@@ -28,6 +32,7 @@ const courses = [
     color: "secondary",
   },
   {
+    id: "devops-cloud",
     icon: Cloud,
     title: "DevOps & Cloud",
     description: "Deploy, CI/CD, Docker, Kubernetes e infraestrutura moderna.",
@@ -36,6 +41,7 @@ const courses = [
     color: "success",
   },
   {
+    id: "machine-learning",
     icon: Brain,
     title: "Machine Learning para Devs",
     description: "IA e ML aplicado: modelos, APIs e integração em aplicações reais.",
@@ -44,6 +50,7 @@ const courses = [
     color: "warning",
   },
   {
+    id: "fundamentos",
     icon: Rocket,
     title: "Fundamentos de Programação",
     description: "Aprenda lógica, algoritmos e sua primeira linguagem do zero.",
@@ -75,10 +82,9 @@ const Courses = () => {
           {courses.map((course, index) => {
             const Icon = course.icon;
             return (
-              <Card
-                key={index}
-                className="terminal-border p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:glow-cyan"
-              >
+              <Link key={index} to={`/curso/${course.id}`}>
+                <Card className="terminal-border p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:glow-cyan"
+                >
                 <div className="space-y-4">
                   {/* Icon */}
                   <div className={`w-12 h-12 rounded-lg bg-${course.color}/10 flex items-center justify-center`}>
@@ -106,6 +112,7 @@ const Courses = () => {
                   </div>
                 </div>
               </Card>
+              </Link>
             );
           })}
         </div>
