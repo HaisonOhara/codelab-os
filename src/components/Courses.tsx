@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Database, Smartphone, Cloud, Brain, Rocket } from "lucide-react";
+import { Code2, Database, Smartphone, Cloud, Brain, Rocket, Loader2 } from "lucide-react";
 
 const courses = [
+  {
+    id: "mestre-algoritmo",
+    icon: Rocket,
+    title: "Mestre do Algoritmo",
+    description: "Aprenda lógica, algoritmos e estruturas de dados do zero. Perfeito para iniciantes!",
+    level: "Iniciante",
+    duration: "8 semanas",
+    color: "primary",
+    active: true,
+  },
   {
     id: "web-fullstack",
     icon: Code2,
@@ -12,6 +22,7 @@ const courses = [
     level: "Intermediário",
     duration: "12 semanas",
     color: "primary",
+    active: false,
   },
   {
     id: "mobile-react-native",
@@ -21,6 +32,7 @@ const courses = [
     level: "Intermediário",
     duration: "10 semanas",
     color: "accent",
+    active: false,
   },
   {
     id: "backend-apis",
@@ -30,6 +42,7 @@ const courses = [
     level: "Avançado",
     duration: "14 semanas",
     color: "secondary",
+    active: false,
   },
   {
     id: "devops-cloud",
@@ -39,6 +52,7 @@ const courses = [
     level: "Avançado",
     duration: "16 semanas",
     color: "success",
+    active: false,
   },
   {
     id: "machine-learning",
@@ -48,15 +62,7 @@ const courses = [
     level: "Avançado",
     duration: "18 semanas",
     color: "warning",
-  },
-  {
-    id: "fundamentos",
-    icon: Rocket,
-    title: "Fundamentos de Programação",
-    description: "Aprenda lógica, algoritmos e sua primeira linguagem do zero.",
-    level: "Iniciante",
-    duration: "8 semanas",
-    color: "primary",
+    active: false,
   },
 ];
 
@@ -81,10 +87,24 @@ const Courses = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => {
             const Icon = course.icon;
-            return (
-              <Link key={index} to={`/curso/${course.id}`}>
-                <Card className="terminal-border p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:glow-cyan"
-                >
+            const CardContent = (
+              <Card 
+                className={`terminal-border p-6 transition-all duration-300 group relative ${
+                  course.active 
+                    ? 'hover:scale-105 cursor-pointer hover:glow-cyan' 
+                    : 'opacity-60 cursor-not-allowed'
+                }`}
+              >
+                {/* Coming Soon Badge */}
+                {!course.active && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <Badge variant="outline" className="border-accent/50 text-accent bg-background/80 backdrop-blur-sm">
+                      <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                      Em breve
+                    </Badge>
+                  </div>
+                )}
+
                 <div className="space-y-4">
                   {/* Icon */}
                   <div className={`w-12 h-12 rounded-lg bg-${course.color}/10 flex items-center justify-center`}>
@@ -93,7 +113,9 @@ const Courses = () => {
 
                   {/* Content */}
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                    <h3 className={`text-xl font-bold transition-colors ${
+                      course.active ? 'group-hover:text-primary' : ''
+                    }`}>
                       {course.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
@@ -112,7 +134,16 @@ const Courses = () => {
                   </div>
                 </div>
               </Card>
+            );
+
+            return course.active ? (
+              <Link key={index} to={`/curso/${course.id}`}>
+                {CardContent}
               </Link>
+            ) : (
+              <div key={index}>
+                {CardContent}
+              </div>
             );
           })}
         </div>

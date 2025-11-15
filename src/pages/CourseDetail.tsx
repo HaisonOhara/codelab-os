@@ -111,23 +111,23 @@ const coursesData = {
     ],
     skills: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "ML APIs", "Data Analysis"]
   },
-  "fundamentos": {
+  "mestre-algoritmo": {
     icon: Rocket,
-    title: "Fundamentos de Programação",
-    description: "Aprenda lógica, algoritmos e sua primeira linguagem do zero.",
+    title: "Mestre do Algoritmo",
+    description: "Aprenda lógica, algoritmos e estruturas de dados do zero. Perfeito para iniciantes!",
     level: "Iniciante",
     duration: "8 semanas",
     color: "primary",
-    detailedDescription: "Comece sua jornada na programação do absoluto zero. Aprenda lógica, algoritmos e domine os fundamentos que todo desenvolvedor precisa.",
+    detailedDescription: "O curso perfeito para quem está começando na programação. Aprenda lógica de programação, algoritmos fundamentais e estruturas de dados de forma prática e aplicada.",
     modules: [
-      "Lógica de Programação",
-      "Estruturas de Dados",
-      "Algoritmos Fundamentais",
-      "JavaScript Básico",
-      "Git e GitHub",
-      "Primeiro Projeto Completo"
+      "Lógica de Programação Fundamental",
+      "Algoritmos Básicos",
+      "Estruturas de Dados Essenciais",
+      "Resolução de Problemas",
+      "Complexidade de Algoritmos",
+      "Projeto Final Prático"
     ],
-    skills: ["JavaScript", "HTML", "CSS", "Git", "Algoritmos", "Problem Solving"]
+    skills: ["Lógica", "Algoritmos", "Estruturas de Dados", "Resolução de Problemas", "Python", "JavaScript"]
   }
 };
 
