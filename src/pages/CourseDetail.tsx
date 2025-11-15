@@ -173,18 +173,16 @@ const CourseDetail = () => {
   const Icon = course.icon;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <Link to="/">
-            <Button variant="ghost" className="gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="font-mono">cd ..</span>
-            </Button>
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background pt-16">
+      {/* Back Button */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <Link to="/">
+          <Button variant="ghost" className="gap-2 font-mono">
+            <ArrowLeft className="h-4 w-4" />
+            cd ..
+          </Button>
+        </Link>
+      </div>
 
       {/* Hero Section */}
       <section className="py-12 px-4 border-b border-border">
